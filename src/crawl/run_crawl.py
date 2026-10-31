@@ -4,7 +4,7 @@ import argparse
 import logging
 from pathlib import Path
 
-from src.crawl.tuyensinh247 import crawl_all
+from src.crawl.tuyensinh_edu import crawl_all
 
 logging.basicConfig(
     level=logging.INFO,

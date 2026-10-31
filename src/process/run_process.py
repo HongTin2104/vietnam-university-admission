@@ -20,7 +20,7 @@ def main() -> None:
     args = parser.parse_args()
 
     df = run(args.raw_dir, args.processed_dir)
-    print(f"Processed {len(df)} records → {args.processed_dir / 'scores.csv'}")
+    print(f"Processed {len(df)} records -> {args.processed_dir / 'scores.csv'}")
 
 
 if __name__ == "__main__":
