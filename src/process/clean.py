@@ -102,6 +102,9 @@ def clean(records: list[dict]) -> pd.DataFrame:
         if col in df.columns:
             df = df[df[col].notna() & (df[col].astype(str).str.strip() != "")]
 
+    if df.empty:
+        return df
+
     # Deduplicate: keep highest score if same (year, uni, major, combo, region)
     key_cols = ["year", "university_code", "major_code", "score_combo", "region_priority"]
     key_cols = [c for c in key_cols if c in df.columns]
