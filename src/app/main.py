@@ -1,14 +1,20 @@
 """Streamlit app: search cutoff scores and get university/major recommendations."""
 
+import sys
 from pathlib import Path
 
-import pandas as pd
-import plotly.express as px
-import streamlit as st
+# Ensure project root is on sys.path when launched as src/app/main.py on Streamlit Cloud
+_ROOT = Path(__file__).parent.parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
-from src.model.recommend import Recommender
+import pandas as pd  # noqa: E402
+import plotly.express as px  # noqa: E402
+import streamlit as st  # noqa: E402
 
-DATA_PATH = Path("data/processed/scores.csv")
+from src.model.recommend import Recommender  # noqa: E402
+
+DATA_PATH = _ROOT / "data" / "processed" / "scores.csv"
 
 st.set_page_config(
     page_title="Tra cứu điểm chuẩn & Gợi ý ngành/trường",
